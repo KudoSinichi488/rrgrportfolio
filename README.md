@@ -1,8 +1,8 @@
 # rrgrportfolio
-For School Purposes Only,
+For School Purposes Only
 
-Just for Fun,
+Just for Fun
 
-Practicing,
+Practicing
 
 Using only Mobile os its Limted
