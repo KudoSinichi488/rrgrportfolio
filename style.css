@@ -682,3 +682,64 @@ footer { padding:40px; text-align:center; opacity:0.6; }
   #get-in-touch { padding: 60px 8%; }
   .get-touch-card { padding: 30px; }
 }
+
+
+
+/* HOBBIES / INTERESTS */
+.hobbies-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* centers the cards horizontally */
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.hobby-card {
+  background: rgba(10,40,90,0.35);
+  backdrop-filter: blur(14px);
+  border-radius: 24px;
+  padding: 20px;
+  text-align: justify; /* text inside is justified */
+  max-width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hobby-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+}
+
+.hobby-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  font-style: italic;
+  color: var(--neon);
+  text-align: center; /* title centered */
+}
+
+.hobby-card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.hobby-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 auto 16px auto; /* centers the image */
+  display: block;
+  border: 2px solid var(--neon);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  animation: float 4s ease-in-out infinite;
+}
+
+/* MOBILE */
+@media(max-width: 768px){
+  .hobby-card {
+    max-width: 90%;
+    margin: 0 auto;
+    text-align: justify;
+  }
+}
