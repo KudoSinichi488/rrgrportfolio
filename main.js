@@ -1,53 +1,40 @@
-document.addEventListener("DOMContentLoaded", function() {
+// ===== HAMBURGER MENU =====
+const hamburger = document.getElementById("hamburger");
+const nav = document.getElementById("nav");
+const header = document.getElementById("header");
 
-  /* =========================
-     Hamburger Menu Toggle
-     (Works with your HTML)
-  ========================= */
-  const hamburger = document.getElementById("hamburger");
-  const navMenu = document.getElementById("nav");
-
-  if(hamburger && navMenu){
-    hamburger.addEventListener("click", function() {
-      hamburger.classList.toggle("open"); // animate hamburger
-      navMenu.classList.toggle("active"); // show/hide menu
-    });
-
-    // Close menu when clicking a link
-    const navLinks = document.querySelectorAll("#nav a");
-    navLinks.forEach(link => {
-      link.addEventListener("click", function() {
-        hamburger.classList.remove("open");
-        navMenu.classList.remove("active");
-      });
-    });
+let lastScroll = 0;
+window.addEventListener("scroll", () => {
+  const currentScroll = window.pageYOffset;
+  if (window.innerWidth <= 900) {
+    if (currentScroll > lastScroll) {
+      header.style.transform = "translateY(-100%)"; // hide header
+    } else {
+      header.style.transform = "translateY(0)"; // show header
+    }
+    lastScroll = currentScroll;
+  } else {
+    header.style.transform = "translateY(0)";
   }
+});
 
-  /* =========================
-     Smooth Scroll for all anchor links
-  ========================= */
-  const scrollLinks = document.querySelectorAll('a[href^="#"]');
-  scrollLinks.forEach(link => {
-    link.addEventListener("click", function(e){
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute("href"));
-      if(target){
-        target.scrollIntoView({ behavior: "smooth" });
-      }
-    });
-  });
+// Hamburger toggle
+hamburger.addEventListener("click", () => {
+  hamburger.classList.toggle("active");
+  nav.classList.toggle("active");
+});
 
-  /* =========================
-     EmailJS Get in Touch Form
-  ========================= */
-  emailjs.init("nkR6KMxld08gdFhIo"); // your public key
+document.addEventListener("DOMContentLoaded", function() {
+  // Initialize EmailJS
+  emailjs.init("nkR6KMxld08gdFhIo"); // your Public Key
 
+  // Contact form submission
   const getTouchForm = document.getElementById("get-touch-form");
   if(getTouchForm){
     getTouchForm.addEventListener("submit", function(event){
-      event.preventDefault(); // prevent reload
+      event.preventDefault(); // prevent default page reload
 
-      emailjs.sendForm('service_qflrzel', 'template_mdp6ilz', this)
+      emailjs.sendForm('service_e53j7x9', 'template_mdp6ilz', this)
         .then(function(){
           alert("Message sent successfully!");
           getTouchForm.reset();
@@ -57,5 +44,4 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
   }
-
 });
