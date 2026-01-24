@@ -97,16 +97,19 @@ function openCertificate(img){
 }
 
 document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function() {
+
+  
   // Initialize EmailJS
   emailjs.init("nkR6KMxld08gdFhIo"); // your Public Key
 
-  // Contact form submission
+  // Handle form submission
   const getTouchForm = document.getElementById("get-touch-form");
   if(getTouchForm){
     getTouchForm.addEventListener("submit", function(event){
-      event.preventDefault(); // prevent default page reload
+      event.preventDefault(); // prevent page reload
 
-      emailjs.sendForm('service_e53j7x9', 'template_mdp6ilz', this)
+      emailjs.sendForm('service_qflrzel', 'template_mdp6ilz', this)
         .then(function(){
           alert("Message sent successfully!");
           getTouchForm.reset();
@@ -116,4 +119,4 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
   }
-});
+})
