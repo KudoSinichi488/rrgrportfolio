@@ -1,26 +1,26 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-  /* =========================
-     Hamburger Menu Toggle
-  ========================= */
   const hamburger = document.getElementById("hamburger");
   const navMenu = document.getElementById("nav");
 
   if(hamburger && navMenu){
-    hamburger.addEventListener("click", function() {
-      hamburger.classList.toggle("open");  // animate hamburger
-      navMenu.classList.toggle("active");   // show/hide menu
+    hamburger.addEventListener("click", function(){
+      hamburger.classList.toggle("open"); // animate hamburger
+      navMenu.classList.toggle("active"); // show nav
     });
 
-    // Close menu when clicking a link
-    const navLinks = document.querySelectorAll("#nav a");
-    navLinks.forEach(link => {
-      link.addEventListener("click", function() {
-        hamburger.classList.remove("open");
-        navMenu.classList.remove("active");
+    // Close menu on link click
+    navMenu.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        if(window.innerWidth <= 900){  // only on mobile
+          hamburger.classList.remove("open");
+          navMenu.classList.remove("active");
+        }
       });
     });
   }
+
+});
 
   /* =========================
      Smooth Scroll for all anchor links
