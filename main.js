@@ -3,8 +3,8 @@ document.addEventListener("DOMContentLoaded", function() {
   /* =========================
      Hamburger Menu Toggle
   ========================= */
-  const hamburger = document.getElementById("hamburger"); // your fixed-hamburger
-  const navMenu = document.getElementById("nav-menu");   // your navigation menu
+  const hamburger = document.getElementById("hamburger");
+  const navMenu = document.getElementById("nav"); // updated to match your HTML
 
   if(hamburger && navMenu){
     hamburger.addEventListener("click", function() {
@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // Close menu when clicking a link
-    const navLinks = document.querySelectorAll("#nav-menu a");
+    const navLinks = document.querySelectorAll("#nav a");
     navLinks.forEach(link => {
       link.addEventListener("click", function() {
         hamburger.classList.remove("open");
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
   /* =========================
      Initialize EmailJS
   ========================= */
-  emailjs.init("nkR6KMxld08gdFhIo"); // your Public Key
+  emailjs.init("nkR6KMxld08gdFhIo"); // your public key
 
   /* =========================
      Get in Touch Form
