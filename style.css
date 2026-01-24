@@ -20,6 +20,7 @@ body { background: radial-gradient(circle at 20% 10%, #0b2b5a, var(--bg-dark)); 
 .nav a:hover::after { width:100%; }
 
 /* MOBILE HAMBURGER */
+/* HAMBURGER */
 .fixed-hamburger {
   display: none;
   position: fixed;
@@ -30,43 +31,53 @@ body { background: radial-gradient(circle at 20% 10%, #0b2b5a, var(--bg-dark)); 
   height: 24px;
   justify-content: center;
   cursor: pointer;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .fixed-hamburger span {
-  position: absolute;
+  display: block;
   width: 100%;
   height: 3px;
   background: white;
   border-radius: 2px;
-  transition: 0.4s ease;
+  transition: all 0.4s ease;
 }
 
-/* default positions */
-.fixed-hamburger span:nth-child(1) {
-  top: 0;
+/* Hamburger active = X */
+.fixed-hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
 }
-.fixed-hamburger span:nth-child(2) {
-  top: 10px;
-}
-.fixed-hamburger span:nth-child(3) {
-  top: 20px;
-}
-
-/* ACTIVE = PERFECT X */
-.fixed-hamburger.active span:nth-child(1) {
-  top: 10px;
-  transform: rotate(45deg);
-}
-
-.fixed-hamburger.active span:nth-child(2) {
+.fixed-hamburger.open span:nth-child(2) {
   opacity: 0;
 }
-
-.fixed-hamburger.active span:nth-child(3) {
-  top: 10px;
-  transform: rotate(-45deg);
+.fixed-hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 
+/* NAVIGATION MOBILE */
+@media(max-width:900px){
+  .fixed-hamburger { display: flex; }
+  .nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 240px;
+    height: 100vh;
+    background: rgba(2,20,60,0.95);
+    flex-direction: column;
+    padding: 70px 20px 30px;
+    transition: 0.4s;
+    z-index: 1001;
+  }
+  .nav.active { right: 0; }
+  .nav a { margin: 14px 0; }
+}
+
+/* DESKTOP - hide hamburger */
+@media(min-width:901px){
+  .fixed-hamburger { display: none; }
+}
 /* HERO */
 .hero { display:flex; align-items:center; justify-content:space-between; padding:120px 8% 40px; min-height:90vh; background-size:cover; background-position:center; background-attachment:fixed; }
 .hero-left { max-width:600px; }
@@ -667,23 +678,3 @@ footer { padding:40px; text-align:center; opacity:0.6; }
   background: rgba(255, 255, 255, 0.35);
 }
 
-
-/* HAMBURGER ACTIVE FIX */
-.fixed-hamburger.open span:nth-child(1) {
-  top: 10px;
-  transform: rotate(45deg);
-}
-
-.fixed-hamburger.open span:nth-child(2) {
-  opacity: 0;
-}
-
-.fixed-hamburger.open span:nth-child(3) {
-  top: 10px;
-  transform: rotate(-45deg);
-}
-
-/* HERO FIX FOR DESKTOP SPACING */
-@media(min-width: 901px) {
-  .hero { padding: 80px 8% 40px; } /* reduced top padding */
-}
