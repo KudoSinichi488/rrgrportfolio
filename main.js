@@ -4,12 +4,12 @@ document.addEventListener("DOMContentLoaded", function() {
      Hamburger Menu Toggle
   ========================= */
   const hamburger = document.getElementById("hamburger");
-  const navMenu = document.getElementById("nav"); // updated to match your HTML
+  const navMenu = document.getElementById("nav"); // match your nav ID
 
   if(hamburger && navMenu){
     hamburger.addEventListener("click", function() {
       hamburger.classList.toggle("open"); // animate hamburger to X
-      navMenu.classList.toggle("active"); // show/hide menu
+      navMenu.classList.toggle("active"); // show/hide mobile menu
     });
 
     // Close menu when clicking a link
@@ -23,12 +23,26 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   /* =========================
+     Smooth Scroll for all anchor links
+  ========================= */
+  const scrollLinks = document.querySelectorAll('a[href^="#"]');
+  scrollLinks.forEach(link => {
+    link.addEventListener("click", function(e){
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute("href"));
+      if(target){
+        target.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+  });
+
+  /* =========================
      Initialize EmailJS
   ========================= */
   emailjs.init("nkR6KMxld08gdFhIo"); // your public key
 
   /* =========================
-     Get in Touch Form
+     Get in Touch Form Submission
   ========================= */
   const getTouchForm = document.getElementById("get-touch-form");
   if(getTouchForm){
@@ -45,19 +59,5 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
   }
-
-  /* =========================
-     Smooth Scroll for links
-  ========================= */
-  const scrollLinks = document.querySelectorAll('a[href^="#"]');
-  scrollLinks.forEach(link => {
-    link.addEventListener("click", function(e){
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute("href"));
-      if(target){
-        target.scrollIntoView({ behavior: "smooth" });
-      }
-    });
-  });
 
 });
