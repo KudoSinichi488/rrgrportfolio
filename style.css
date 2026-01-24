@@ -678,3 +678,56 @@ footer { padding:40px; text-align:center; opacity:0.6; }
   #get-in-touch { padding: 60px 8%; }
   .get-touch-card { padding: 30px; }
 }
+
+
+
+
+
+.fixed-hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 28px;
+  height: 22px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.fixed-hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: white;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.fixed-hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.fixed-hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.fixed-hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Mobile nav menu hidden by default */
+#nav {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 70px; /* adjust based on header height */
+  right: 20px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(18px);
+  padding: 20px;
+  border-radius: 16px;
+}
+
+/* Show menu when active */
+#nav.active {
+  display: flex;
+}
