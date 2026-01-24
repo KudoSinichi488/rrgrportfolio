@@ -96,22 +96,24 @@ function openCertificate(img){
   document.body.appendChild(popup);
 }
 
-// Initialize EmailJS
-emailjs.init("nkR6KMxld08gdFhIo"); // your Public Key
+document.addEventListener("DOMContentLoaded", function() {
+  // Initialize EmailJS
+  emailjs.init("nkR6KMxld08gdFhIo"); // your Public Key
 
-// Contact form submission
-const getTouchForm = document.getElementById("get-touch-form");
-if(getTouchForm){
-  getTouchForm.addEventListener("submit", function(event){
-    event.preventDefault(); // prevent page reload
-    emailjs.sendForm('service_e53j7x9', 'template_mdp6ilz', this)
-      .then(function(){
-        alert("Message sent successfully!");
-        getTouchForm.reset();
-      }, function(error){
-        alert("Failed to send message. Try again.");
-        console.error(error);
-      });
-  });
-}
+  // Contact form submission
+  const getTouchForm = document.getElementById("get-touch-form");
+  if(getTouchForm){
+    getTouchForm.addEventListener("submit", function(event){
+      event.preventDefault(); // prevent default page reload
 
+      emailjs.sendForm('service_e53j7x9', 'template_mdp6ilz', this)
+        .then(function(){
+          alert("Message sent successfully!");
+          getTouchForm.reset();
+        }, function(error){
+          alert("Failed to send message. Try again.");
+          console.error(error);
+        });
+    });
+  }
+});
