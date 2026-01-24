@@ -502,3 +502,103 @@ footer { padding:40px; text-align:center; opacity:0.6; }
   text-decoration: none;
   font-weight: 600;
 }
+
+
+
+/* CONNECT WITH ME SECTION */
+.connect-section {
+  display: flex;
+  justify-content: center;
+  margin: 60px 0;
+}
+
+.connect-card {
+  width: 100%;
+  max-width: 520px;          /* bigger like certificate section */
+  padding: 40px 30px;        /* more padding for taller frame */
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+}
+
+.cert-title, .connect-title {
+  color: white;
+  margin-bottom: 28px;
+  font-size: 1.4rem;
+  text-align: center;        /* center the title */
+  font-style: italic;
+}
+
+.connect-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.06);
+  margin-bottom: 16px;
+  text-decoration: none;
+  color: white;
+  transition: transform 0.35s ease, background 0.35s ease;
+  min-height: 60px;          /* enough height for wrapped text */
+}
+
+.connect-item:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ICON */
+.connect-item .icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;        /* circle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.connect-item .icon img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+/* TEXT */
+.connect-item .text {
+  flex: 1;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.connect-item .text strong {
+  display: block;
+  font-size: 1rem;
+}
+
+.connect-item .text span {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  display: block;
+}
+
+/* ARROW */
+.arrow {
+  opacity: 0.7;
+  font-size: 1rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .connect-card {
+    width: 90%;              /* smaller on mobile */
+    padding: 30px 20px;
+  }
+
+  .connect-item {
+    padding: 14px 16px;
+  }
+}
