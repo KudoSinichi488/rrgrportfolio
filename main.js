@@ -3,8 +3,8 @@ document.addEventListener("DOMContentLoaded", function() {
   /* =========================
      Hamburger Menu Toggle
   ========================= */
-  const hamburger = document.getElementById("hamburger");
-  const navMenu = document.getElementById("nav-menu");
+  const hamburger = document.getElementById("hamburger"); // your fixed-hamburger
+  const navMenu = document.getElementById("nav-menu");   // your navigation menu
 
   if(hamburger && navMenu){
     hamburger.addEventListener("click", function() {
