@@ -666,3 +666,24 @@ footer { padding:40px; text-align:center; opacity:0.6; }
 #get-touch-form button:hover {
   background: rgba(255, 255, 255, 0.35);
 }
+
+
+/* HAMBURGER ACTIVE FIX */
+.fixed-hamburger.open span:nth-child(1) {
+  top: 10px;
+  transform: rotate(45deg);
+}
+
+.fixed-hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.fixed-hamburger.open span:nth-child(3) {
+  top: 10px;
+  transform: rotate(-45deg);
+}
+
+/* HERO FIX FOR DESKTOP SPACING */
+@media(min-width: 901px) {
+  .hero { padding: 80px 8% 40px; } /* reduced top padding */
+}
