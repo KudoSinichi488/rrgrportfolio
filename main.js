@@ -64,3 +64,12 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 });
+
+
+const video = document.getElementById("dancingVideo");
+const muteBtn = document.getElementById("muteBtn");
+
+muteBtn.addEventListener("click", () => {
+  video.muted = !video.muted;
+  muteBtn.textContent = video.muted ? "🔇" : "🔊";
+});
