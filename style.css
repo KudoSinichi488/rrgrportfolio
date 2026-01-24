@@ -680,15 +680,27 @@ footer { padding:40px; text-align:center; opacity:0.6; }
 
 
 
+/* lock hamburger to mobile only */
+@media (min-width: 901px) {
+  .hamburger {
+    display: none !important;
+  }
+}
 
-// ===== HAMBURGER FIX =====
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-links, nav, .navbar');
+/* animate hamburger to X */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
 
-if (hamburger && navMenu) {
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-    document.body.classList.toggle('no-scroll');
-  });
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* stop background scroll when menu open */
+.no-scroll {
+  overflow: hidden;
 }
