@@ -2,14 +2,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
   /* =========================
      Hamburger Menu Toggle
+     (Works with your HTML)
   ========================= */
   const hamburger = document.getElementById("hamburger");
-  const navMenu = document.getElementById("nav"); // match your nav ID
+  const navMenu = document.getElementById("nav");
 
   if(hamburger && navMenu){
     hamburger.addEventListener("click", function() {
-      hamburger.classList.toggle("open"); // animate hamburger to X
-      navMenu.classList.toggle("active"); // show/hide mobile menu
+      hamburger.classList.toggle("open"); // animate hamburger
+      navMenu.classList.toggle("active"); // show/hide menu
     });
 
     // Close menu when clicking a link
@@ -37,17 +38,14 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   /* =========================
-     Initialize EmailJS
+     EmailJS Get in Touch Form
   ========================= */
   emailjs.init("nkR6KMxld08gdFhIo"); // your public key
 
-  /* =========================
-     Get in Touch Form Submission
-  ========================= */
   const getTouchForm = document.getElementById("get-touch-form");
   if(getTouchForm){
     getTouchForm.addEventListener("submit", function(event){
-      event.preventDefault(); // prevent page reload
+      event.preventDefault(); // prevent reload
 
       emailjs.sendForm('service_qflrzel', 'template_mdp6ilz', this)
         .then(function(){
