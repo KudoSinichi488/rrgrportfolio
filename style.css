@@ -602,7 +602,7 @@ footer { padding:40px; text-align:center; opacity:0.6; }
   }
 }
 
-/* GET IN TOUCH */
+/* GET IN TOUCH SECTION */
 #get-in-touch {
   display: flex;
   justify-content: center;
@@ -653,9 +653,9 @@ footer { padding:40px; text-align:center; opacity:0.6; }
   color: rgba(255,255,255,0.7);
 }
 
-/* Only textarea (message) taller */
+/* Make message textarea taller */
 #get-touch-form textarea {
-  min-height: 140px; /* Taller message box */
+  min-height: 140px;
 }
 
 #get-touch-form button {
